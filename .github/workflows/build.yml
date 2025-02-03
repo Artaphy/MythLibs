@@ -9,6 +9,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Cache Gradle Wrapper and Distributions
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/wrapper/
+            ~/.gradle/caches/
+            ~/.gradle/wrapper/dists/
+          key: gradle-${{ runner.os }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+          
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -20,10 +31,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build Project
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Plugin-JAR
+          name: MythLibs
           path: build/libs/*.jar
+
