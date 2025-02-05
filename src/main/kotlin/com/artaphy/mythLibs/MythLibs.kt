@@ -1,14 +1,18 @@
 package com.artaphy.mythLibs
 
+import com.artaphy.mythLibs.utils.Logger
 import org.bukkit.plugin.java.JavaPlugin
 
 class MythLibs : JavaPlugin() {
 
+
     override fun onEnable() {
-        // Plugin startup logic
+        Logger.init(this)
+        Logger.info("MythLibs successfully enabled!")
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+
+        Logger.info("MythLibs successfully disabled!")
     }
 }

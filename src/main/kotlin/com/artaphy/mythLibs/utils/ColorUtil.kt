@@ -10,7 +10,7 @@ import kotlin.math.roundToInt
  * This class supports the following formats:
  *
  * 1. Standard Colors:
- *    - Codes using '&' or '§' followed by a formatting shorthand (e.g. &3, &b, §3, §b)
+ *    - Codes using '&' or '§' followed by a formatting shorthand (e.g. &3, §b)
  *    - Codes enclosed in angle brackets (e.g. <italic>, <gold>)
  *
  * 2. HEX Colors:
